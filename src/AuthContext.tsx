@@ -79,7 +79,7 @@ export const AuthProvider = ({ authConfig, children }: IAuthProvider) => {
   }
 
   function logOut(state?: string, logoutHint?: string, additionalParameters?: TPrimitiveRecord) {
-    clearStorage()
+    // clearStorage()
     setError(null)
     if (config?.logoutEndpoint && token)
       redirectToLogout(config, token, refreshToken, idToken, state, logoutHint, additionalParameters)
