@@ -153,7 +153,7 @@ export function redirectToLogout(
   console.log(data);
   console.log(url);
   console.log('------------------------------------');
-  window.location.assign(url);
+  // window.location.assign(url);
 }
 
 export function validateState(urlParams: URLSearchParams, storageType: TInternalConfig['storage']) {
