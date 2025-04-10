@@ -18,7 +18,8 @@ const authConfig = {
   tokenEndpoint: 'https://idm-dev.letsongo.com/oauth2/token',
   logoutEndpoint: 'https://idm-dev.letsongo.com/oauth2/sessions/logout',
   redirectUri: 'http://localhost:3000',
-  logoutRedirect: 'http://localhost:3000/logout',
+  // logoutRedirect: 'http://localhost:3000',
+  logoutRedirect: 'https://www-dev.letsongo.com',
   onRefreshTokenExpire: (event) => event.logIn('', {}, 'popup'),
   preLogin: () => console.log('Logging in...'),
   postLogin: () => console.log('Logged in!'),
@@ -27,7 +28,7 @@ const authConfig = {
   state: 'testState12345678',
   clearURL: true,
   autoLogin: false,
-  storage: 'session',
+  storage: 'local',
   refreshWithScope: false,
 };
 

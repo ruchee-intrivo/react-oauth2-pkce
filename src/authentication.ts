@@ -134,18 +134,20 @@ export function redirectToLogout(
   additionalParameters?: TPrimitiveRecord,
 ) {
   const data = {
-    token: refresh_token || token,
-    token_type_hint: refresh_token ? 'refresh_token' : 'access_token',
+    // token: refresh_token || token,
+    // token: token,
+    // token_type_hint: refresh_token ? 'refresh_token' : 'access_token',
+    // token_type_hint: 'access_token',
     client_id: config.clientId,
     post_logout_redirect_uri: config.logoutRedirect ?? config.redirectUri,
-    ui_locales: window.navigator.languages.join(' '),
+    // ui_locales: window.navigator.languages.join(' '),
     ...config.extraLogoutParameters,
     ...additionalParameters,
   };
   const params = new URLSearchParams(data);
   if (idToken) params.append('id_token_hint', idToken);
-  if (state) params.append('state', state);
-  if (logoutHint) params.append('logout_hint', logoutHint);
+  // if (state) params.append('state', state);
+  // if (logoutHint) params.append('logout_hint', logoutHint);
   const url = `${config.logoutEndpoint}?${params.toString()}`;
   console.log('------------------------------------');
   console.log(config.logoutEndpoint);
