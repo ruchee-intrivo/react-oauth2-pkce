@@ -10,6 +10,16 @@ import React, { useContext } from 'react';
 import { createRoot } from 'react-dom/client';
 import { AuthContext, AuthProvider } from './AuthContext';
 
+function random_string(len) {
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < len; i++) {
+    const randomIndex = Math.floor(Math.random() * chars.length);
+    result += chars[randomIndex];
+  }
+  return result;
+}
+
 // Get auth provider info from "https://keycloak.ofstad.xyz/realms/master/.well-known/openid-configuration"
 /** @type {import('./types').TAuthConfig} */
 const authConfig = {
@@ -25,7 +35,7 @@ const authConfig = {
   postLogin: () => console.log('Logged in!'),
   decodeToken: true,
   scope: 'member:read member:write openid offline',
-  state: 'testState12345678',
+  state: random_string(56),
   clearURL: true,
   autoLogin: false,
   storage: 'local',
